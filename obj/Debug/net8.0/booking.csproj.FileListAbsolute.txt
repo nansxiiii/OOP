@@ -1,0 +1,14 @@
+C:\Users\user\Desktop\nancy\OOP-project\bin\Debug\net8.0\booking.exe
+C:\Users\user\Desktop\nancy\OOP-project\bin\Debug\net8.0\booking.deps.json
+C:\Users\user\Desktop\nancy\OOP-project\bin\Debug\net8.0\booking.runtimeconfig.json
+C:\Users\user\Desktop\nancy\OOP-project\bin\Debug\net8.0\booking.dll
+C:\Users\user\Desktop\nancy\OOP-project\bin\Debug\net8.0\booking.pdb
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.AssemblyInfo.cs
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.dll
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\refint\booking.dll
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.pdb
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\booking.genruntimeconfig.cache
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net8.0\ref\booking.dll
