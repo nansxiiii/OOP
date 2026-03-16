@@ -334,6 +334,7 @@ class Program
 
         do
         {
+            Console.Clear();
             Menu();
             int.TryParse(Console.ReadLine(), out choice);
 
@@ -364,6 +365,11 @@ class Program
                     break;
             }
 
+            if (choice != 7)
+            {
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey(true);
+            }
         } while (choice != 7);
     }
 }

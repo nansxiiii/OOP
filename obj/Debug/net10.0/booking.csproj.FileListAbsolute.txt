@@ -12,3 +12,4 @@ C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net10.0\refint\booking.dll
 C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net10.0\booking.pdb
 C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net10.0\booking.genruntimeconfig.cache
 C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net10.0\ref\booking.dll
+C:\Users\user\Desktop\nancy\OOP-project\obj\Debug\net10.0\booking.sourcelink.json
