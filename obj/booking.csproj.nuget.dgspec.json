@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\nancy\\OOP-project\\booking.csproj": {}
+    "C:\\Users\\HF\\Documents\\OOP\\booking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\nancy\\OOP-project\\booking.csproj": {
+    "C:\\Users\\HF\\Documents\\OOP\\booking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\nancy\\OOP-project\\booking.csproj",
+        "projectUniqueName": "C:\\Users\\HF\\Documents\\OOP\\booking.csproj",
         "projectName": "booking",
-        "projectPath": "C:\\Users\\user\\Desktop\\nancy\\OOP-project\\booking.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\nancy\\OOP-project\\obj\\",
+        "projectPath": "C:\\Users\\HF\\Documents\\OOP\\booking.csproj",
+        "packagesPath": "C:\\Users\\HF\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HF\\Documents\\OOP\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\HF\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

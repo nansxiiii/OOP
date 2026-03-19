@@ -2,114 +2,32 @@ using System;
 using System.Collections.Generic;
 
 /////////////////////////////////////////////////////
-// ENUM FOR ROOM STATUS
-/////////////////////////////////////////////////////
-enum RoomStatus
-{
-    Available,
-    Reserved
-}
-
-/////////////////////////////////////////////////////
-// ABSTRACTION
-/////////////////////////////////////////////////////
-abstract class Room
-{
-    private int roomNumber;
-
-    public int RoomNumber
-    {
-        get { return roomNumber; }
-        set
-        {
-            if (value > 0)
-                roomNumber = value;
-        }
-    }
-
-    public string Type { get; set; }
-    public double Price { get; set; }
-    public RoomStatus Status { get; set; }
-
-    public Room(int number, string type, double price)
-    {
-        RoomNumber = number;
-        Type = type;
-        Price = price;
-        Status = RoomStatus.Available;
-    }
-
-    public abstract void DisplayRoom();
-}
-
-/////////////////////////////////////////////////////
-// STANDARD ROOM
-/////////////////////////////////////////////////////
-class StandardRoom : Room
-{
-    public StandardRoom(int number)
-        : base(number, "Standard", 1200)
-    {
-    }
-
-    public override void DisplayRoom()
-    {
-        Console.WriteLine($"{RoomNumber} | {Type} | {Price} | {Status}");
-    }
-}
-
-/////////////////////////////////////////////////////
-// DELUXE ROOM
-/////////////////////////////////////////////////////
-class DeluxeRoom : Room
-{
-    public DeluxeRoom(int number)
-        : base(number, "Deluxe", 2000)
-    {
-    }
-
-    public override void DisplayRoom()
-    {
-        Console.WriteLine($"{RoomNumber} | {Type} | {Price} | {Status}");
-    }
-}
-
-/////////////////////////////////////////////////////
-// CUSTOMER CLASS
-/////////////////////////////////////////////////////
-class Customer
-{
-    public string Name { get; set; }
-    public string Email { get; set; }
-    public string Address { get; set; }
-    public int RoomNumber { get; set; }
-
-    public DateOnly CheckIn { get; set; }
-    public DateOnly CheckOut { get; set; }
-    public double TotalPrice { get; set; }
-    public DateTime ReservationDate { get; set; }
-}
-
-/////////////////////////////////////////////////////
 // HOTEL SYSTEM
 /////////////////////////////////////////////////////
 class HotelSystem
 {
+    // In-memory data storage
     private List<Room> rooms = new List<Room>();
     private List<Customer> customers = new List<Customer>();
 
+    // Helper method to read and validate date input from the user
     private static DateOnly ReadDate(string label)
     {
+        // Loop until a valid date is entered
         while (true)
         {
             Console.Write($"{label} (yyyy-MM-dd): ");
             string input = Console.ReadLine();
 
+            // Try to parse the input string into a DateOnly object using the specified format
             if (DateOnly.TryParseExact(
                 input,
                 "yyyy-MM-dd",
+                // Use invariant culture to ensure consistent date parsing regardless of the user's locale
                 System.Globalization.CultureInfo.InvariantCulture,
+                // Specify that no special styles are applied to the date parsing
                 System.Globalization.DateTimeStyles.None,
+                // If parsing is successful, return the parsed DateOnly value
                 out DateOnly value
             ))
             {
@@ -125,9 +43,11 @@ class HotelSystem
     /////////////////////////////////////////////////////
     public void InitializeRooms()
     {
+        // Create standard rooms with room numbers 101 to 105 and add them to the rooms list
         for (int i = 101; i <= 105; i++)
             rooms.Add(new StandardRoom(i));
 
+        // Create deluxe rooms with room numbers 201 to 205 and add them to the rooms list
         for (int i = 201; i <= 205; i++)
             rooms.Add(new DeluxeRoom(i));
     }
@@ -137,12 +57,15 @@ class HotelSystem
         Console.WriteLine("\nROOM LIST");
         Console.WriteLine("Room | Type | Price | Status");
 
+        // Iterate through the list of rooms and call the DisplayRoom method for each room to show its details
         foreach (var r in rooms)
             r.DisplayRoom();
     }
 
+    // Helper method to find a room by its room number
     private Room FindRoom(int roomNumber)
     {
+        // Use the Find method of the rooms list to search for a room with the specified room number
         return rooms.Find(r => r.RoomNumber == roomNumber);
     }
 
@@ -159,9 +82,11 @@ class HotelSystem
         Console.Write("Address: ");
         c.Address = Console.ReadLine();
 
+        // Read and validate the check-in and check-out dates from the user
         c.CheckIn = ReadDate("Check In Date");
         c.CheckOut = ReadDate("Check Out Date");
 
+        // Validate that the check-out date is after the check-in date
         if (c.CheckOut <= c.CheckIn)
         {
             Console.WriteLine("Check-out must be after check-in.");
@@ -170,11 +95,14 @@ class HotelSystem
 
         ListRooms();
 
+        // Prompt the user to select a room by entering its room number
         Console.Write("\nSelect Room: ");
         int roomNumber = Convert.ToInt32(Console.ReadLine());
 
+        // Find the selected room using the FindRoom helper method
         Room room = FindRoom(roomNumber);
 
+        // Check if the room is available for reservation
         if (room == null || room.Status == RoomStatus.Reserved)
         {
             Console.WriteLine("Room not available.");
@@ -183,11 +111,15 @@ class HotelSystem
 
         Console.WriteLine($"Room Type: {room.Type}");
         Console.WriteLine($"Price: {room.Price}");
+
+        // Calculate the number of nights based on the check-in and check-out dates and calculate the total price for the reservation
         int nights = (c.CheckOut.ToDateTime(TimeOnly.MinValue) - c.CheckIn.ToDateTime(TimeOnly.MinValue)).Days;
         c.TotalPrice = nights * room.Price;
+
         Console.WriteLine($"Nights: {nights}");
         Console.WriteLine($"Total Price: {c.TotalPrice}");
 
+        // Prompt the user to select a payment method and process the payment accordingly
         Console.WriteLine("\nPayment Method");
         Console.WriteLine("1. Card");
         Console.WriteLine("2. Cash");
@@ -235,6 +167,8 @@ class HotelSystem
     {
         Console.WriteLine("\nRESERVED ROOMS");
 
+        // Iterate through the list of customers and display the reservation details for each customer,
+        // including the room number, customer name, check-in date, and check-out date
         foreach (var c in customers)
         {
             Console.WriteLine($"Room {c.RoomNumber} reserved by {c.Name}");
@@ -332,8 +266,7 @@ class Program
 
         int choice;
 
-        do
-        {
+        do{
             Console.Clear();
             Menu();
             int.TryParse(Console.ReadLine(), out choice);
@@ -364,12 +297,11 @@ class Program
                     hotel.ShowCustomerInfo();
                     break;
             }
-
             if (choice != 7)
             {
                 Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey(true);
+                Console.ReadKey();
             }
-        } while (choice != 7);
+        } while (choice != 7) ;
     }
 }
