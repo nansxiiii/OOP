@@ -1,7 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
+/////////////////////////////////////////////////////
 // MAIN PROGRAM
+/////////////////////////////////////////////////////
 class Program
 {
     static void Menu()
@@ -13,9 +15,7 @@ class Program
         Console.WriteLine("4. Cancel Reservation");
         Console.WriteLine("5. List Customers");
         Console.WriteLine("6. Customer Info");
-        Console.WriteLine("7. Check In");
-        Console.WriteLine("8. Check Out");
-        Console.WriteLine("9. Exit");
+        Console.WriteLine("7. Exit");
         Console.Write("Choice: ");
     }
 
@@ -56,23 +56,17 @@ class Program
                 case 6:
                     hotel.ShowCustomerInfo();
                     break;
-                case 7:
-                    hotel.CheckIn();
-                    break;
-                case 8:
-                    hotel.CheckOut();
-                    break;
                 default:
                     Console.WriteLine("+--------------------------+");
                     Console.WriteLine("|Invalid choice. Try again.|");
                     Console.WriteLine("+--------------------------+");
                     break;
             }
-            if (choice != 9)
+            if (choice != 7)
             {
                 Console.WriteLine("\nPress any key to continue...");
                 Console.ReadKey();
             }
-        } while (choice != 9) ;
+        } while (choice != 7) ;
     }
 }

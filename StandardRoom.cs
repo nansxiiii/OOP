@@ -1,8 +1,6 @@
 using System;
 
-/////////////////////////////////////////////////////
 // STANDARD ROOM
-/////////////////////////////////////////////////////
 class StandardRoom : Room
 {
     //Parameterized constructor to initialize the standard room with specific details

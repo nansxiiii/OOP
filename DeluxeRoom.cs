@@ -1,8 +1,6 @@
 using System;
 
-/////////////////////////////////////////////////////
 // DELUXE ROOM
-/////////////////////////////////////////////////////
 class DeluxeRoom : Room
 {
     //Parameterized constructor to initialize the deluxe room with specific details
