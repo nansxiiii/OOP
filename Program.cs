@@ -62,6 +62,9 @@ class Program
                 case 8:
                     hotel.CheckOut();
                     break;
+                case 9:
+                    Console.WriteLine("Thank you for using our program!");
+                    break;
                 default:
                     Console.WriteLine("+--------------------------+");
                     Console.WriteLine("|Invalid choice. Try again.|");

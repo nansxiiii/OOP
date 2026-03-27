@@ -152,29 +152,35 @@ class HotelSystem
         Console.WriteLine("2. Cash");
 
         int payment = Convert.ToInt32(Console.ReadLine());
-
-        if (payment == 1)
-        {
-            Console.Write("Enter 6-digit PIN: ");
-            string pin = Console.ReadLine();
-
-            if (pin.Length != 6)
+        if (payment <= 2) {
+            if (payment == 1)
             {
-                Console.WriteLine("Invalid PIN.");
-                return;
-            }
+                Console.Write("Enter 6-digit PIN: ");
+                string pin = Console.ReadLine();
 
-            Console.WriteLine("Payment Successful!");
+                if (pin.Length != 6)
+                {
+                    Console.WriteLine("Invalid PIN.");
+                    return;
+                }
+
+                Console.WriteLine("Payment Successful!");
+            }
+            if (payment == 2)
+            {
+                Console.WriteLine("\n----- RECEIPT -----");
+                Console.WriteLine($"Room: {room.RoomNumber}");
+                Console.WriteLine($"Price per Night: {room.Price}");
+                Console.WriteLine($"Nights: {nights}");
+                Console.WriteLine($"Total: {c.TotalPrice}");
+                Console.WriteLine("Payment: Cash");
+                Console.WriteLine("-------------------");
+            }
         }
         else
-        {
-            Console.WriteLine("\n----- RECEIPT -----");
-            Console.WriteLine($"Room: {room.RoomNumber}");
-            Console.WriteLine($"Price per Night: {room.Price}");
-            Console.WriteLine($"Nights: {nights}");
-            Console.WriteLine($"Total: {c.TotalPrice}");
-            Console.WriteLine("Payment: Cash");
-            Console.WriteLine("-------------------");
+        { 
+            Console.WriteLine("Invalid payment method.");
+            return;
         }
 
         room.Status = RoomStatus.Reserved;
