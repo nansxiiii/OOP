@@ -1,7 +1,7 @@
 using System;
 
 // ENUM FOR ROOM STATUS
-enum RoomStatus { Available, Reserved }
+enum RoomStatus { Available, Reserved, Occupied }
 
 // ABSTRACTION
 abstract class Room

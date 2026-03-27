@@ -53,6 +53,7 @@ class HotelSystem
             return;
         }
 
+        room.Status = RoomStatus.Occupied;
         Console.WriteLine($"Welcome {c.Name}! Check-in successful for room {number}.");
     }
 
@@ -68,6 +69,12 @@ class HotelSystem
         if (c == null || room == null)
         {
             Console.WriteLine("No reservation found.");
+            return;
+        }
+
+        if (room.Status == RoomStatus.Reserved)
+        {
+            Console.WriteLine("Room is currently Reserved. No Check-in Status.");
             return;
         }
 
