@@ -136,8 +136,15 @@ class HotelSystem
         // Find the selected room using the FindRoom helper method
         Room room = FindRoom(roomNumber);
 
+        // Validate that the room exists
+        if (room == null)
+        {
+            Console.WriteLine("Invalid Room Number");
+            return;
+        }
+
         // Check if the room is available for reservation
-        if (room == null || room.Status == RoomStatus.Reserved)
+        if (room.Status == RoomStatus.Occupied || room.Status == RoomStatus.Reserved)
         {
             Console.WriteLine("Room not available.");
             return;
@@ -162,17 +169,33 @@ class HotelSystem
 
         if (payment == 1)
         {
-            Console.Write("Enter 6-digit PIN: ");
-            string pin = Console.ReadLine();
+            while (true) {
+                Console.Write("Enter 6-digit PIN: ");
+                string input = Console.ReadLine();
 
-            if (pin.Length != 6)
-            {
-                Console.WriteLine("Invalid PIN.");
-                return;
+                if (!int.TryParse(input, out int pin))
+                {
+                    Console.WriteLine("Invalid PIN.");
+                    continue;
+                }
+
+                if (pin > 999999) 
+                {
+                    Console.WriteLine("Invalid PIN, must be 6 digits");
+                    continue;
+                }
+
+                break;
             }
 
 
-            Console.WriteLine("Payment Successful!");
+            Console.WriteLine("\n----- RECEIPT -----");
+            Console.WriteLine($"Room: {room.RoomNumber}");
+            Console.WriteLine($"Price per Night: {room.Price}");
+            Console.WriteLine($"Nights: {nights}");
+            Console.WriteLine($"Total: {c.TotalPrice}");
+            Console.WriteLine("Payment: Cash");
+            Console.WriteLine("-------------------");
         }
         else if (payment == 2)
         {

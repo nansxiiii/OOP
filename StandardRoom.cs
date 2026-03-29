@@ -9,7 +9,8 @@ class StandardRoom : Room
     {
     }
 
-    // Polymorphism: Override the DisplayRoom method to show room details in a specific format
+    // Polymorphism: Override the DisplayRoom method to show room details in a specific format 
+    //Runtime Polymorphism
     public override void DisplayRoom()
     {
         Console.WriteLine($"{RoomNumber} | {Type} | {Price} | {Status}");

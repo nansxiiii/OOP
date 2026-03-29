@@ -34,5 +34,5 @@ abstract class Room
         Status = RoomStatus.Available;
     }
 
-    public abstract void DisplayRoom();
+    public abstract void DisplayRoom(); //The data is hidden 
 }

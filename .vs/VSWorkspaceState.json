@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.dotnet-home"
   ],
-  "SelectedNode": "\\Room.cs",
+  "SelectedNode": "\\StandardRoom.cs",
   "PreviewInSolutionExplorer": false
 }
